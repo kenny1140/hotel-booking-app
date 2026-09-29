@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hotel XYZ</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="booking-container">
+      <header class="header">
+        <h1>Hotel XYZ</h1>
+        <p>
+          Welcome to Hotel XYZ! We offer the best accommodations for your stay.
+        </p>
+      </header>
+      <form action="" id="booking-form" class="booking-form">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter your name"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email"
+          />
+        </div>
+        <div class="form-group">
+          <label for="checkin">Check-In Date</label>
+          <input type="date" id="checkin" name="checkin" />
+        </div>
+        <div class="form-group">
+          <label for="checkout">Check-Out Date</label>
+          <input type="date" id="checkout" name="checkout" />
+        </div>
+        <div class="form-group">
+          <label for="roomtype">Room Type</label>
+          <select name="roomtype" id="roomtype" required>
+            <option value="" disabled selected>Select a room category</option>
+            <option value="standard">Standard Room</option>
+            <option value="deluxe">Deluxe Room</option>
+            <option value="suite">Suite</option>
+          </select>
+        </div>
+
+        <button type="submit">Book Now</button>
+      </form>
+
+      <footer>About Us</footer>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
