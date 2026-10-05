@@ -104,3 +104,34 @@ body {
   border-color: var(--primary);
   box-shadow: 0 0 0 3px var(--focus-ring);
 }
+
+.booking-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--primary);
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+}
+
+.booking-form button:hover {
+  background-color: #d0794e;
+}
+
+.booking-form button:active {
+  transform: translateY(1px);
+}
+
+footer {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
