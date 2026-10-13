@@ -4,6 +4,12 @@ const emailInput = document.getElementById("email");
 const checkInInput = document.getElementById("checkin");
 const checkOutInput = document.getElementById("checkout");
 const roomTypeInput = document.getElementById("roomtype");
+const receiptCard = document.getElementById("receipt-card");
+const receiptName = document.getElementById("receipt-name");
+const receiptCheckIn = document.getElementById("receipt-checkin");
+const receiptCheckOut = document.getElementById("receipt-checkout");
+const receiptRoomType = document.getElementById("receipt-roomtype");
+const receiptTotalPrice = document.getElementById("receipt-totalprice");
 
 bookingForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -44,18 +50,18 @@ bookingForm.addEventListener("submit", (e) => {
   }
 
   const totalPrice = numberOfNights * pricePerNight;
-  alert(`Total price for your stay is: $${totalPrice}`);
 
   const formattedCheckIn = checkInDate.toLocaleDateString("de-DE");
   const formattedCheckOut = checkOutDate.toLocaleDateString("de-DE");
 
-  alert(
-    `Thank you, ${nameInput.value}!\n\n` +
-      `Your booking is confirmed.\n` +
-      `Stay: ${formattedCheckIn} to ${formattedCheckOut}\n` +
-      `Room Type: ${roomTypeInput.value}\n` +
-      `Total Price: ${totalPrice}`,
-  );
+  receiptName.textContent = nameInput.value;
+  receiptCheckIn.textContent = formattedCheckIn;
+  receiptCheckOut.textContent = formattedCheckOut;
+  receiptRoomType.textContent =
+    roomTypeInput.options[roomTypeInput.selectedIndex].text;
+  receiptTotalPrice.textContent = `$${totalPrice}`;
+
+  receiptCard.classList.remove("hidden");
 
   const bookingData = {
     name: nameInput.value,
@@ -68,4 +74,5 @@ bookingForm.addEventListener("submit", (e) => {
   };
 
   console.log("Booking Data:", bookingData);
+  bookingForm.reset();
 });
