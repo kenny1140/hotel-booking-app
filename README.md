@@ -41,7 +41,7 @@ All you need is a modern web browser (Chrome, Firefox, Safari, Edge).
 2.  Navigate into the directory:
 Bash:
 
-**cd hotel-booking-app**
+```**cd hotel-booking-app**
 
 
 ```
