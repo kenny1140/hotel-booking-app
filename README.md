@@ -39,8 +39,8 @@ All you need is a modern web browser (Chrome, Firefox, Safari, Edge).
    git clone https://github.com/kenny1140/hotel-booking-app.git
 
 
-2. Navigate into directory :
-```
-   cd hotel-booking-app
+2.Navigate into directory :
 
+   cd hotel-booking-app
+   
 3. Open index.html in your browser (or launch via VS Code Live Server).
