@@ -33,16 +33,13 @@ A modern, responsive web application for seamless hotel room bookings. Designed 
 All you need is a modern web browser (Chrome, Firefox, Safari, Edge).
 
 ### Running Locally
+
 1. Clone the repository:
-   ```bash:
-   
-   git clone [https://github.com/kenny1140/hotel-booking-app.git](https://github.com/kenny1140/hotel-booking-app.git)
-
-2.  Navigate into the directory:
-Bash:
-
-```**cd hotel-booking-app**
+   ```bash
+   git clone https://github.com/kenny1140/hotel-booking-app.git
 
 
-```
+2. Navigate into directory :
+   ****cd hotel-booking-app
+
 3. Open index.html in your browser (or launch via VS Code Live Server).
