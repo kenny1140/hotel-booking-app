@@ -140,7 +140,7 @@ footer {
   display: none !important;
 }
 
-.reception-card {
+.receipt-card {
   margin-top: 24px;
   padding: 20px;
   background-color: #fafbfc;
@@ -173,7 +173,7 @@ footer {
 @keyframes slideDown {
   from {
     opacity: 0;
-    transform: translateY(-8px);
+    transform: translateY(-12px);
   }
   to {
     opacity: 1;

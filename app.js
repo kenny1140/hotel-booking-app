@@ -17,10 +17,6 @@ bookingForm.addEventListener("submit", (e) => {
   const checkInStr = checkInInput.value;
   const checkOutStr = checkOutInput.value;
 
-  if (!checkInInput.value || !checkOutInput.value) {
-    alert("Please select both check-in and check-out dates.");
-    return;
-  }
   const checkInDate = new Date(checkInStr);
   const checkOutDate = new Date(checkOutStr);
 
@@ -74,5 +70,12 @@ bookingForm.addEventListener("submit", (e) => {
   };
 
   console.log("Booking Data:", bookingData);
+
+  const storedBookings = JSON.parse(localStorage.getItem("bookings")) || [];
+
+  storedBookings.push(bookingData);
+
+  localStorage.setItem("bookings", JSON.stringify(storedBookings));
+
   bookingForm.reset();
 });
