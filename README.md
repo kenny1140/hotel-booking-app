@@ -40,6 +40,7 @@ All you need is a modern web browser (Chrome, Firefox, Safari, Edge).
 
 
 2. Navigate into directory :
-   ****cd hotel-booking-app
 
-3. Open index.html in your browser (or launch via VS Code Live Server).
+   cd hotel-booking-app
+
+4. Open index.html in your browser (or launch via VS Code Live Server).
