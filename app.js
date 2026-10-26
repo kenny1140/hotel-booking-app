@@ -10,6 +10,59 @@ const receiptCheckIn = document.getElementById("receipt-checkin");
 const receiptCheckOut = document.getElementById("receipt-checkout");
 const receiptRoomType = document.getElementById("receipt-roomtype");
 const receiptTotalPrice = document.getElementById("receipt-totalprice");
+const confirmNumber = document.getElementById("confirm-number");
+const editButton = document.getElementById("edit-button");
+const deleteButton = document.getElementById("delete-button");
+
+function renderBookings() {
+  const storedBookings = JSON.parse(localStorage.getItem("bookings")) || [];
+
+  if (storedBookings.length > 0) {
+    const latestBooking = storedBookings[storedBookings.length - 1];
+
+    receiptName.textContent = latestBooking.name;
+    receiptCheckIn.textContent = new Date(
+      latestBooking.checkIn,
+    ).toLocaleDateString("de-DE");
+    receiptCheckOut.textContent = new Date(
+      latestBooking.checkOut,
+    ).toLocaleDateString("de-DE");
+    receiptRoomType.textContent =
+      latestBooking.roomType.charAt(0).toUpperCase() +
+      latestBooking.roomType.slice(1);
+    receiptTotalPrice.textContent = `$${latestBooking.totalPrice}`;
+    confirmNumber.textContent = latestBooking.confirmNumber;
+
+    receiptCard.classList.remove("hidden");
+  }
+}
+
+function editBooking() {
+  const storedBookings = JSON.parse(localStorage.getItem("bookings")) || [];
+
+  if (storedBookings.length > 0) {
+    const latestBooking = storedBookings[storedBookings.length - 1];
+
+    nameInput.value = latestBooking.name;
+    emailInput.value = latestBooking.email;
+    checkInInput.value = latestBooking.checkIn;
+    checkOutInput.value = latestBooking.checkOut;
+    roomTypeInput.value = latestBooking.roomType;
+
+    storedBookings.pop();
+    localStorage.setItem("bookings", JSON.stringify(storedBookings));
+
+    receiptCard.classList.add("hidden");
+  }
+}
+
+function deleteBooking() {
+  const storedBookings = JSON.parse(localStorage.getItem("bookings")) || [];
+  storedBookings.pop();
+
+  localStorage.setItem("bookings", JSON.stringify(storedBookings));
+  receiptCard.classList.add("hidden");
+}
 
 bookingForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -60,6 +113,9 @@ bookingForm.addEventListener("submit", (e) => {
   receiptCard.classList.remove("hidden");
 
   const bookingData = {
+    id: Date.now(),
+    confirmNumber: `CXYZ-${checkInInput.value.replace(/-/g, "")}-00`,
+
     name: nameInput.value,
     email: emailInput.value,
     checkIn: checkInInput.value,
@@ -69,7 +125,12 @@ bookingForm.addEventListener("submit", (e) => {
     numberOfNights: numberOfNights,
   };
 
-  console.log("Booking Data:", bookingData);
+  console.log(
+    "Booking Data:",
+    bookingData,
+    "Booking Confirmation: ",
+    bookingData.confirmNumber,
+  );
 
   const storedBookings = JSON.parse(localStorage.getItem("bookings")) || [];
 
@@ -78,4 +139,9 @@ bookingForm.addEventListener("submit", (e) => {
   localStorage.setItem("bookings", JSON.stringify(storedBookings));
 
   bookingForm.reset();
+  renderBookings();
 });
+
+renderBookings();
+deleteButton.addEventListener("click", deleteBooking);
+editButton.addEventListener("click", editBooking);
