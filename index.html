@@ -57,13 +57,17 @@
         <button type="submit">Book Now</button>
       </form>
       <section id="receipt-card" class="receipt-card hidden">
-        <div class="receipt-actions">
-          <button id="edit-button" class="edit-button">✏️ Edit Booking</button>
-          <button id="delete-button" class="delete-button">
-            🗑️ Delete Booking
-          </button>
+        <div class="receipt-header">
+          <h2>Booking Confirmation</h2>
+          <div class="receipt-actions">
+            <button id="edit-button" class="edit-button">
+              ✏️ Edit Booking
+            </button>
+            <button id="delete-button" class="delete-button">
+              🗑️ Delete Booking
+            </button>
+          </div>
         </div>
-        <h2>Booking Confirmation</h2>
         <div class="receipt-details">
           <p>Confirmation Number: <span id="confirm-number"></span></p>
           <p>Guest Name: <span id="receipt-name"></span></p>
