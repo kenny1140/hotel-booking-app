@@ -11,6 +11,8 @@ const receiptCheckOut = document.getElementById("receipt-checkout");
 const receiptRoomType = document.getElementById("receipt-roomtype");
 const receiptTotalPrice = document.getElementById("receipt-totalprice");
 const confirmNumber = document.getElementById("confirm-number");
+const editButton = document.getElementById("edit-button");
+const deleteButton = document.getElementById("delete-button");
 
 function renderBookings() {
   const storedBookings = JSON.parse(localStorage.getItem("bookings")) || [];
@@ -33,6 +35,33 @@ function renderBookings() {
 
     receiptCard.classList.remove("hidden");
   }
+}
+
+function editBooking() {
+  const storedBookings = JSON.parse(localStorage.getItem("bookings")) || [];
+
+  if (storedBookings.length > 0) {
+    const latestBooking = storedBookings[storedBookings.length - 1];
+
+    nameInput.value = latestBooking.name;
+    emailInput.value = latestBooking.email;
+    checkInInput.value = latestBooking.checkIn;
+    checkOutInput.value = latestBooking.checkOut;
+    roomTypeInput.value = latestBooking.roomType;
+
+    storedBookings.pop();
+    localStorage.setItem("bookings", JSON.stringify(storedBookings));
+
+    receiptCard.classList.add("hidden");
+  }
+}
+
+function deleteBooking() {
+  const storedBookings = JSON.parse(localStorage.getItem("bookings")) || [];
+  storedBookings.pop();
+
+  localStorage.setItem("bookings", JSON.stringify(storedBookings));
+  receiptCard.classList.add("hidden");
 }
 
 bookingForm.addEventListener("submit", (e) => {
@@ -114,3 +143,5 @@ bookingForm.addEventListener("submit", (e) => {
 });
 
 renderBookings();
+deleteButton.addEventListener("click", deleteBooking);
+editButton.addEventListener("click", editBooking);
