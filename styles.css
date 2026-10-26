@@ -141,6 +141,7 @@ footer {
 }
 
 .receipt-card {
+  position: relative;
   margin-top: 24px;
   padding: 20px;
   background-color: #fafbfc;
@@ -150,6 +151,50 @@ footer {
   border-right: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
   animation: slideDown 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.receipt-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+}
+
+.receipt-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.receipt-actions button {
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+}
+
+#edit-button {
+  background-color: #e2e8f0;
+  color: #334155;
+}
+
+#edit-button:hover {
+  background-color: #cbd5e1;
+}
+
+#delete-button {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+#delete-button:hover {
+  background-color: #fecaca;
 }
 
 .receipt-card h2 {
